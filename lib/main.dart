@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:habit_quiz/answers.dart';
 
+import './answers.dart';
 import './questions.dart';
 
 void main() {
@@ -16,17 +16,49 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   var _questionList = ["Q1", "Q2", "Q3", "Q4", "Q5", "Q6"];
-  var _answerList = [
-    ["Option 1.A", "Option 1.B", "Option 1.C", "Option 1.D"],
-    ["Option 2.A", "Option 2.B", "Option 2.C", "Option 2.D"],
-    ["Option 3.A", "Option 3.B", "Option 3.C", "Option 3.D"],
-    ["Option 4.A", "Option 4.B", "Option 4.C", "Option 4.D"],
-    ["Option 5.A", "Option 5.B", "Option 5.C", "Option 5.D"],
-    ["Option 6.A", "Option 6.B", "Option 6.C", "Option 6.D"],
+  List<List<Map<String, Object>>> _answerList = [
+    [
+      {'text': "Option 1.A", 'score': 10},
+      {'text': "Option 1.B", 'score': 0},
+      {'text': "Option 1.C", 'score': 0},
+      {'text': "Option 1.D", 'score': 0},
+    ],
+    [
+      {'text': "Option 2.A", 'score': 0},
+      {'text': "Option 2.B", 'score': 0},
+      {'text': "Option 2.C", 'score': 10},
+      {'text': "Option 2.D", 'score': 0},
+    ],
+    [
+      {'text': "Option 3.A", 'score': 0},
+      {'text': "Option 3.B", 'score': 10},
+      {'text': "Option 3.C", 'score': 0},
+      {'text': "Option 3.D", 'score': 0},
+    ],
+    [
+      {'text': "Option 4.A", 'score': 10},
+      {'text': "Option 4.B", 'score': 0},
+      {'text': "Option 4.C", 'score': 0},
+      {'text': "Option 4.D", 'score': 0},
+    ],
+    [
+      {'text': "Option 5.A", 'score': 0},
+      {'text': "Option 5.B", 'score': 10},
+      {'text': "Option 5.C", 'score': 0},
+      {'text': "Option 5.D", 'score': 0},
+    ],
+    [
+      {'text': "Option 6.A", 'score': 0},
+      {'text': "Option 6.B", 'score': 0},
+      {'text': "Option 6.C", 'score': 10},
+      {'text': "Option 6.D", 'score': 0},
+    ],
   ];
   double _score = 0;
   var _currentIndex = 0;
-  void _updateIndex() {
+
+  void _updateIndex(int currentScore) {
+    _score += currentScore;
     setState(() {
       _currentIndex++;
     });
@@ -42,16 +74,18 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(
           title: Text('Welcome to Quiz App'),
         ),
-        body: _currentIndex < 6
+        body: _currentIndex < _questionList.length
             ? Center(
                 child: Column(
-                children: [
-                  Question(_questionList[_currentIndex]),
-                  ...(_answerList[_currentIndex] as List<String>).map((temp) {
-                    return Answer(temp, _updateIndex);
-                  }).toList(),
-                ],
-              ))
+                  children: [
+                    Question(_questionList[_currentIndex]),
+                    ..._answerList[_currentIndex].map((temp) {
+                      return Answer(temp['text'].toString(),
+                          () => _updateIndex(temp['score'] as int));
+                    }).toList(),
+                  ],
+                ),
+              )
             : Center(
                 child: Text(_score.toString()),
               ),
