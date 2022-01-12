@@ -1,3 +1,3 @@
 # habit-quiz-app
 
-## For testing knowledge about habit building process
+## A flutter app where user can play a quiz to test knowledge about habit building process.
