@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import './answers.dart';
 import './questions.dart';
+import './result.dart';
 
 void main() {
   runApp(MyApp());
@@ -64,6 +65,12 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
+  void _resetQuiz() {
+    setState(() {
+      _currentIndex = 0;
+    });
+  }
+
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'QuizApp',
@@ -72,7 +79,10 @@ class _MyAppState extends State<MyApp> {
       ),
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Welcome to Quiz App'),
+          title: Text(
+            'Welcome to Quiz App',
+            style: TextStyle(fontStyle: FontStyle.italic, fontSize: 28),
+          ),
         ),
         body: _currentIndex < _questionList.length
             ? Center(
@@ -86,9 +96,7 @@ class _MyAppState extends State<MyApp> {
                   ],
                 ),
               )
-            : Center(
-                child: Text(_score.toString()),
-              ),
+            : Result(_score.toString(), _resetQuiz),
       ),
     );
   }
