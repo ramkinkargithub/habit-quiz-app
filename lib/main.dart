@@ -16,31 +16,38 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   @override
-  var _questionList = ["Q1", "Q2", "Q3", "Q4", "Q5", "Q6"];
+  var _questionList = [
+    "To make up for fleeting motivation, one should ______",
+    "Reducing reliance on motivation helps in being ______",
+    "Which of the following factors influence our habits the most?",
+    "Which of the following helps to make smarter choice & develop positive habits?",
+    "Q5",
+    "Q6"
+  ];
   List<List<Map<String, Object>>> _answerList = [
     [
-      {'text': "Option 1.A", 'score': 10},
-      {'text': "Option 1.B", 'score': 0},
-      {'text': "Option 1.C", 'score': 0},
-      {'text': "Option 1.D", 'score': 0},
+      {'text': "Get Motivated", 'score': 0},
+      {'text': "Make it consistent", 'score': 0},
+      {'text': "Make the habit easy", 'score': 10},
+      {'text': "Choose hard habits", 'score': 0},
     ],
     [
-      {'text': "Option 2.A", 'score': 0},
-      {'text': "Option 2.B", 'score': 0},
-      {'text': "Option 2.C", 'score': 10},
-      {'text': "Option 2.D", 'score': 0},
+      {'text': "Disciplined", 'score': 0},
+      {'text': "Consistent", 'score': 10},
+      {'text': "Punctual", 'score': 0},
+      {'text': "Happy", 'score': 0},
     ],
     [
-      {'text': "Option 3.A", 'score': 0},
-      {'text': "Option 3.B", 'score': 10},
-      {'text': "Option 3.C", 'score': 0},
-      {'text': "Option 3.D", 'score': 0},
+      {'text': "Our environment, friends, and families", 'score': 10},
+      {'text': "Our motivation levels", 'score': 0},
+      {'text': "Our desire to succeed", 'score': 0},
+      {'text': "All of the above", 'score': 0},
     ],
     [
-      {'text': "Option 4.A", 'score': 10},
-      {'text': "Option 4.B", 'score': 0},
-      {'text': "Option 4.C", 'score': 0},
-      {'text': "Option 4.D", 'score': 0},
+      {'text': "Exercise", 'score': 0},
+      {'text': "Healthy Eating", 'score': 0},
+      {'text': "Mindfulness", 'score': 0},
+      {'text': "All of the above", 'score': 10},
     ],
     [
       {'text': "Option 5.A", 'score': 0},
