@@ -9,12 +9,15 @@ class Result extends StatelessWidget {
     return Center(
         child: Column(
       children: [
-        Text(totalScore),
+        Text(
+          totalScore,
+          style: TextStyle(fontSize: 30),
+        ),
         FlatButton(
           onPressed: reset,
           child: Text(
             'Try once more !',
-            style: TextStyle(fontSize: 30),
+            style: TextStyle(fontSize: 20),
           ),
         ),
       ],
