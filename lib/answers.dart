@@ -6,14 +6,13 @@ class Answer extends StatelessWidget {
   Answer(this.answer, this._updateIndexOfMain);
   Widget build(BuildContext context) {
     return Container(
-      child: RaisedButton(
+      width: double.infinity,
+      child: ElevatedButton(
         onPressed: _updateIndexOfMain,
         child: Text(
           answer,
           style: TextStyle(fontSize: 16),
         ),
-        color: Colors.blue,
-        textColor: Colors.white,
       ),
     );
   }
