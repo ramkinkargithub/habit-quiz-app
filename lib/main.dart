@@ -88,8 +88,8 @@ class _MyAppState extends State<MyApp> {
       home: Scaffold(
         appBar: AppBar(
           title: Text(
-            'Welcome to Quiz App',
-            style: TextStyle(fontStyle: FontStyle.italic, fontSize: 28),
+            'We are what we repeatedly do ...',
+            style: TextStyle(fontStyle: FontStyle.italic, fontSize: 20),
           ),
         ),
         body: _currentIndex < _questionList.length
